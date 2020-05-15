@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   # controllers: {
   #   confirmations:      'api/v1/auth/confirmations',
-  #   passwords:          'api/v1/auth/passwords',
+  #   passwords:          'api/v1/auth/passwords',herok
   #   registrations:      'api/v1/auth/registrations',
   #   sessions:           'api/v1/auth/sessions',
   #   token_validations:  'api/v1/auth/token_validations'

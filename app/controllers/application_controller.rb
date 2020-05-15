@@ -11,6 +11,11 @@ class ApplicationController < ActionController::API
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone])
   end
+
+  # pass any HTML requests that it doesn’t catch to Create React App
+  def fallback_index_html
+    render :file => 'public/index.html'
+  end
   
   # before_action :authorized
 
