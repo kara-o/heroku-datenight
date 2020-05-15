@@ -11,7 +11,7 @@
     "test": "test"
   },
   "scripts": {
-    "build": "cd frontend && npm install && npm build",
+    "build": "cd frontend && npm install && npm run build",
     "deploy": "cp -a frontend/build/. public/",
     "heroku-postbuild": "npm run build && npm run deploy"
   },
