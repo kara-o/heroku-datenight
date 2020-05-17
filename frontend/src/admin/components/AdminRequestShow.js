@@ -8,6 +8,7 @@ import {
   ListContainer,
   QuestionModal,
   Review,
+  Loading,
 } from "../../elements";
 import { MenuItem } from "@material-ui/core";
 import { fetchRequest, fetchOptions } from "../../user/services/api";
@@ -263,7 +264,7 @@ const AdminRequestShow = (props) => {
 
   const displayScrapedVenues = () => {
     return isFetching ? (
-      loading()
+      <Loading />
     ) : scrapedNames.length ? (
       scrapedNames
         .filter((item, i) => {
@@ -313,10 +314,6 @@ const AdminRequestShow = (props) => {
         </ListContainer>
       </div>
     );
-  };
-
-  const loading = () => {
-    return <p>Loading...</p>;
   };
 
   return request ? (

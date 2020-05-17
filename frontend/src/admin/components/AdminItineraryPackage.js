@@ -8,6 +8,7 @@ import {
   Form,
   LoadingScreen,
 } from "../../elements";
+import { MenuItem } from "@material-ui/core";
 import {
   createItineraryPackage,
   fetchItineraryPackage,
@@ -19,9 +20,9 @@ import { createUseStyles } from "react-jss";
 const useStyles = createUseStyles({
   container: {
     gridColumn: "1/3",
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   filter: {
     margin: "10px",
@@ -88,9 +89,9 @@ const AdminItineraryPackage = (props) => {
   const renderOptions = (array, attribute) => {
     return array.map((o) => {
       return (
-        <option key={o.id} value={o.id}>
+        <MenuItem key={o.id} value={o.id}>
           {o[`${attribute}`]}
-        </option>
+        </MenuItem>
       );
     });
   };

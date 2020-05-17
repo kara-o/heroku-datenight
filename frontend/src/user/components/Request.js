@@ -7,7 +7,6 @@ import {
   MyButton,
   SideDialog,
   Errors,
-  Fieldset,
   Blurb,
 } from "../../elements";
 import { MenuItem } from "@material-ui/core";
@@ -45,7 +44,6 @@ const useStyles = createUseStyles({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    justifyContent: "center",
   },
   noHelp: {
     gridColumn: "1/3",
@@ -61,13 +59,23 @@ const useStyles = createUseStyles({
     flex: "1",
     display: "flex",
     flexFlow: "row wrap",
+    width: "100%",
   },
-  specificFilters: {
+  sectionDetails: {
+    flex: "3",
+    display: "flex",
+    flexFlow: "row wrap",
+    justifyContent: "space-evenly",
+    marginBottom: "20px",
+  },
+  sectionNotes: {
+    flex: "3",
     display: "flex",
     flexFlow: "row wrap",
   },
   sectionTitle: {
     flex: "1",
+    alignSelf: "start",
     margin: "auto",
     fontWeight: "bold",
   },
@@ -270,8 +278,8 @@ const Request = (props) => {
           <Form>
             {errors ? <Errors errors={errors.fullMessages} /> : null}
             <div className={classes.section}>
-              <p>Date and Time</p>
-              <div>
+              <p className={classes.sectionTitle}>Date and Time</p>
+              <div className={classes.sectionDetails}>
                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
                   <KeyboardDatePicker
                     disableToolbar
@@ -296,8 +304,8 @@ const Request = (props) => {
               </div>
             </div>
             <div className={classes.section}>
-              <p>Specifics</p>
-              <div className={classes.specificFilters}>
+              <p className={classes.sectionTitle}>Specifics</p>
+              <div className={classes.sectionDetails}>
                 <Filter
                   value={formData.party_size}
                   onChange={(e) => handleChange(e.target.value, "party_size")}
@@ -334,28 +342,32 @@ const Request = (props) => {
               </div>
             </div>
             <div className={classes.section}>
-              <p>Contacts (up to 4)</p>
-              {contacts
-                .concat([""])
-                .slice(0, 4) // limit to 4
-                .map((contact, i) => (
-                  <MyInput
-                    key={i}
-                    width={"100px"}
-                    placeholder={`Phone ${i + 1}`}
-                    value={contact}
-                    type="tel"
-                    onChange={(e) => updateContactAt(e.target.value, i)}
-                  />
-                ))}
+              <p className={classes.sectionTitle}>Contacts (up to 4)</p>
+              <div className={classes.sectionDetails}>
+                {contacts
+                  .concat([""])
+                  .slice(0, 4) // limit to 4
+                  .map((contact, i) => (
+                    <MyInput
+                      key={i}
+                      width={"100px"}
+                      placeholder={`Phone ${i + 1}`}
+                      value={contact}
+                      type="tel"
+                      onChange={(e) => updateContactAt(e.target.value, i)}
+                    />
+                  ))}
+              </div>
             </div>
             <div className={classes.section}>
-              <p>Notes</p>
-              <Blurb
-                placeholder="Any additional notes for us?"
-                value={formData.notes}
-                onChange={(e) => handleChange(e.target.value, "notes")}
-              />
+              <p className={classes.sectionTitle}>Notes</p>
+              <div className={classes.sectionNotes}>
+                <Blurb
+                  placeholder="Any additional notes for us?"
+                  value={formData.notes}
+                  onChange={(e) => handleChange(e.target.value, "notes")}
+                />
+              </div>
             </div>
           </Form>
           <MyButton onClick={handleSubmit}>Submit Request</MyButton>

@@ -123,6 +123,9 @@ const App = () => {
         setAllRequests(updatedRequests);
       });
     }
+    return () => {
+      cancelled = true;
+    };
   }, [invalidatedRequest]);
 
   const handleInvalidatedRequest = (id) => {

@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useDebugValue } from "react";
-import { fetchRequests, cancelRequest } from "../services/api";
+import React, { useEffect, useState } from "react";
+import { fetchRequests } from "../services/api";
 import * as moment from "moment";
-import { ListContainer, ListItem, Stars } from "../../elements";
+import { ListContainer, ListItem, Stars, Loading } from "../../elements";
 import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
@@ -16,14 +16,18 @@ const useStyles = createUseStyles({
 const UserHome = (props) => {
   const { userData } = props;
   const [requests, setRequests] = useState([]);
+  const [isFetching, setIsFetching] = useState(false);
   const classes = useStyles();
 
   useEffect(() => {
     if (userData) {
-      console.log("fetching requests!", props.location.state);
-      fetchRequests(userData).then((json) => setRequests(json));
+      setIsFetching(true);
+      fetchRequests(userData).then((json) => {
+        setIsFetching(false);
+        setRequests(json);
+      });
     }
-  }, [props.location.state, userData]); //TODO do I really need props.location.state
+  }, [userData]);
 
   const renderUncancelledRequests = () => {
     const uncancelledReqs = requests.filter(
@@ -95,7 +99,7 @@ const UserHome = (props) => {
     return stringOfNames;
   };
 
-  return requests ? (
+  return !isFetching ? (
     <>
       <ListContainer styles={classes.listContainer} title="Upcoming Dates">
         {renderUncancelledRequests()}
@@ -104,7 +108,9 @@ const UserHome = (props) => {
         {renderPastDates()}
       </ListContainer>
     </>
-  ) : null;
+  ) : (
+    <Loading center={true} />
+  );
 };
 
 export default UserHome;
