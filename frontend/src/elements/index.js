@@ -23,6 +23,7 @@ import Fieldset from "./Fieldset";
 import Review from "./Review";
 import Stars from "./Stars";
 import MyPaper from "./MyPaper";
+import Blurb from "./Blurb";
 
 export {
   MyButton,
@@ -50,4 +51,5 @@ export {
   Review,
   Stars,
   MyPaper,
+  Blurb,
 };

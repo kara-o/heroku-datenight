@@ -3,6 +3,7 @@ import {
   MyButton,
   Errors,
   MyInput,
+  Blurb,
   Filter,
   Form,
   LoadingScreen,
@@ -126,8 +127,7 @@ const AdminItineraryPackage = (props) => {
           {renderOptions(priceRanges, "max_amount")}
         </Filter>
 
-        <MyInput
-          blurb={true}
+        <Blurb
           placeholder="Write a blurb..."
           value={blurb}
           onChange={(e) => setBlurb(e.target.value)}

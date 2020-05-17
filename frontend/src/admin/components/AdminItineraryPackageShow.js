@@ -12,6 +12,7 @@ import {
   Form,
   MyInput,
   MyPaper,
+  Blurb
 } from "../../elements";
 import { createUseStyles } from "react-jss";
 import { useHistory } from "react-router-dom";
@@ -118,8 +119,7 @@ const ItineraryItemForm = (props) => {
         value={address}
         onChange={(e) => setAddress(e.target.value)}
       />
-      <MyInput
-        blurb={true}
+      <Blurb
         placeholder="Blurb"
         value={blurb}
         onChange={(e) => setBlurb(e.target.value)}

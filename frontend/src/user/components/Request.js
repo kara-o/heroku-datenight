@@ -8,6 +8,7 @@ import {
   SideDialog,
   Errors,
   Fieldset,
+  Blurb,
 } from "../../elements";
 import { MenuItem } from "@material-ui/core";
 import DateFnsUtils from "@date-io/date-fns";
@@ -55,6 +56,20 @@ const useStyles = createUseStyles({
   filter: {
     marginTop: "20px",
     marginBottom: "20px",
+  },
+  section: {
+    flex: "1",
+    display: "flex",
+    flexFlow: "row wrap",
+  },
+  specificFilters: {
+    display: "flex",
+    flexFlow: "row wrap",
+  },
+  sectionTitle: {
+    flex: "1",
+    margin: "auto",
+    fontWeight: "bold",
   },
 });
 
@@ -254,65 +269,72 @@ const Request = (props) => {
 
           <Form>
             {errors ? <Errors errors={errors.fullMessages} /> : null}
-            <Fieldset legend="Date and Time">
-              <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <KeyboardDatePicker
-                  disableToolbar
-                  variant="inline"
-                  format="MM/dd/yyyy"
-                  margin="normal"
-                  label="Date"
-                  minDate={tomorrow()}
-                  value={formData.start_date}
-                  onChange={(date) => handleChange(date, "start_date")}
-                />
-                <KeyboardTimePicker
-                  disableToolbar
-                  variant="inline"
-                  minutesStep={30}
-                  margin="normal"
-                  label="Time"
-                  value={formData.start_time}
-                  onChange={(time) => handleChange(time, "start_time")}
-                />
-              </MuiPickersUtilsProvider>
-            </Fieldset>
-            <Fieldset legend="Specifics">
-              <Filter
-                value={formData.party_size}
-                onChange={(e) => handleChange(e.target.value, "party_size")}
-                styles={classes.filter}
-              >
-                <MenuItem value="" disabled>
-                  Party Size
-                </MenuItem>
-                <MenuItem value="1">1 person</MenuItem>
-                <MenuItem value="2">2 people</MenuItem>
-                <MenuItem value="3">3 people</MenuItem>
-                <MenuItem value="4">4 people</MenuItem>
-              </Filter>
-              <Filter
-                value={neighborhoodSelection}
-                onChange={(e) => setNeighborhoodSelection(e.target.value)}
-                styles={classes.filter}
-              >
-                <MenuItem value="" disabled>
-                  Neighborhood
-                </MenuItem>
-                {renderOptions(neighborhoods, "name")}
-              </Filter>
-              <Filter
-                value={priceRangeSelection}
-                onChange={(e) => setPriceRangeSelection(e.target.value)}
-                styles={classes.filter}
-              >
-                <MenuItem value="" disabled>
-                  Price Range
-                </MenuItem>
-                {renderOptions(priceRanges, "max_amount")}
-              </Filter>
-            </Fieldset>
-            <Fieldset legend="Contacts (up to 4)">
+            <div className={classes.section}>
+              <p>Date and Time</p>
+              <div>
+                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                  <KeyboardDatePicker
+                    disableToolbar
+                    variant="inline"
+                    format="MM/dd/yyyy"
+                    margin="normal"
+                    label="Date"
+                    minDate={tomorrow()}
+                    value={formData.start_date}
+                    onChange={(date) => handleChange(date, "start_date")}
+                  />
+                  <KeyboardTimePicker
+                    disableToolbar
+                    variant="inline"
+                    minutesStep={30}
+                    margin="normal"
+                    label="Time"
+                    value={formData.start_time}
+                    onChange={(time) => handleChange(time, "start_time")}
+                  />
+                </MuiPickersUtilsProvider>
+              </div>
+            </div>
+            <div className={classes.section}>
+              <p>Specifics</p>
+              <div className={classes.specificFilters}>
+                <Filter
+                  value={formData.party_size}
+                  onChange={(e) => handleChange(e.target.value, "party_size")}
+                  styles={classes.filter}
+                >
+                  <MenuItem value="" disabled>
+                    Party Size
+                  </MenuItem>
+                  <MenuItem value="1">1 person</MenuItem>
+                  <MenuItem value="2">2 people</MenuItem>
+                  <MenuItem value="3">3 people</MenuItem>
+                  <MenuItem value="4">4 people</MenuItem>
+                </Filter>
+                <Filter
+                  value={neighborhoodSelection}
+                  onChange={(e) => setNeighborhoodSelection(e.target.value)}
+                  styles={classes.filter}
+                >
+                  <MenuItem value="" disabled>
+                    Neighborhood
+                  </MenuItem>
+                  {renderOptions(neighborhoods, "name")}
+                </Filter>
+                <Filter
+                  value={priceRangeSelection}
+                  onChange={(e) => setPriceRangeSelection(e.target.value)}
+                  styles={classes.filter}
+                >
+                  <MenuItem value="" disabled>
+                    Price Range
+                  </MenuItem>
+                  {renderOptions(priceRanges, "max_amount")}
+                </Filter>
+              </div>
+            </div>
+            <div className={classes.section}>
+              <p>Contacts (up to 4)</p>
               {contacts
                 .concat([""])
                 .slice(0, 4) // limit to 4
@@ -326,13 +348,15 @@ const Request = (props) => {
                     onChange={(e) => updateContactAt(e.target.value, i)}
                   />
                 ))}
-            </Fieldset>
-            <MyInput
-              blurb={true}
-              placeholder="Any additional notes for us?"
-              value={formData.notes}
-              onChange={(e) => handleChange(e.target.value, "notes")}
-            />
+            </div>
+            <div className={classes.section}>
+              <p>Notes</p>
+              <Blurb
+                placeholder="Any additional notes for us?"
+                value={formData.notes}
+                onChange={(e) => handleChange(e.target.value, "notes")}
+              />
+            </div>
           </Form>
           <MyButton onClick={handleSubmit}>Submit Request</MyButton>
           {showModal ? (

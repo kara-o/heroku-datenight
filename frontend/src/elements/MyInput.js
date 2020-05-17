@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   },
 });
 
-const MyInput = ({ type, name, value, onChange, placeholder, blurb = false }) => {
+const MyInput = ({ type, name, value, onChange, placeholder }) => {
   const classes = useStyles();
 
   if (type === "tel") {
@@ -31,25 +31,6 @@ const MyInput = ({ type, name, value, onChange, placeholder, blurb = false }) =>
         onChange={onChange}
       />
     );
-  }
-
-  if (blurb) {
-    return (
-      <TextField
-        classes={{
-          root: classes.root,
-        }}
-        id="outlined-multiline-flexible"
-        label={placeholder}
-        multiline
-        rowsMax={4}
-        type={type}
-        name={name}
-        value={value}
-        onChange={onChange}
-        variant="outlined"
-      />
-    )
   }
 
   return (

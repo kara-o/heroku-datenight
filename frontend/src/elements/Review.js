@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { createReview } from "../user/services/api";
 import { updateAdminReview } from "../admin/services/api-admin";
-import { MyButton, Stars, Fieldset, MyInput, MyPaper } from ".";
+import { MyButton, Stars, Fieldset, Blurb, MyPaper } from ".";
 import { createUseStyles } from "react-jss";
 import * as moment from "moment";
 
@@ -102,8 +102,7 @@ const Review = ({
       ) : null;
     } else {
       return (
-        <MyInput
-          blurb={true}
+        <Blurb
           placeholder="Any additional feedback?"
           value={review.feedback}
           onChange={(e) => handleChangeFeedback(e.target.value)}
