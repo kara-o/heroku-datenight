@@ -40,7 +40,7 @@ const Footer = () => {
     <footer className={classes.container}>
       <ExtendedBackground />
 
-      <h1 className={classes.title + " " + "title-fantasy-font"}>DateNight</h1>
+      <h1 className={classes.title}>DateNight</h1>
       <div>
         <MyLink styles={classes.link}>About</MyLink> •{" "}
         <MyLink styles={classes.link}>Contact</MyLink>

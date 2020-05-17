@@ -50,6 +50,10 @@ const useStyles = createUseStyles({
     ".title-fantasy-font": {
       fontFamily: "Chalkduster, fantasy",
     },
+    h1: {
+      textAlign: "center",
+      fontFamily: "Chalkduster, fantasy",
+    },
   },
   mainContainer: {
     gridArea: "main",

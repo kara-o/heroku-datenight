@@ -16,7 +16,7 @@ const ListContainer = ({ title = null, filter = null, children, styles }) => {
 
   return (
     <div className={styles + " " + classes.container}>
-      {title ? <h1 className="title-fantasy-font">{title}</h1> : null}
+      {title ? <h1>{title}</h1> : null}
       {filter}
       <ScrollContainer className={classes.list}>{children}</ScrollContainer>
     </div>

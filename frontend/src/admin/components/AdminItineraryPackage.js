@@ -102,7 +102,7 @@ const AdminItineraryPackage = (props) => {
 
   return (
     <div className={classes.container}>
-      <h1 className="title-fantasy-font">Create New Itinerary Package</h1>
+      <h1>Create New Itinerary Package</h1>
       <Form>
         {errors ? <Errors errors={errors} /> : null}
 

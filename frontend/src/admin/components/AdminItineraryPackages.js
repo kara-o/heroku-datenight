@@ -100,7 +100,7 @@ const AdminItineraryPackages = (props) => {
       {allPackages.length > 0 ? (
         <>
           <div className={classes.details}>
-            <h1 className="title-fantasy-font">Itinerary Packages</h1>
+            <h1>Itinerary Packages</h1>
             <MyLink destination="/admin/itinerary_packages/new">
               Make a New Package
             </MyLink>

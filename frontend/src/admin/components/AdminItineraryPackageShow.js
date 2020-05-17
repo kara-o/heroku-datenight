@@ -12,7 +12,7 @@ import {
   Form,
   MyInput,
   MyPaper,
-  Blurb
+  Blurb,
 } from "../../elements";
 import { createUseStyles } from "react-jss";
 import { useHistory } from "react-router-dom";
@@ -203,7 +203,7 @@ const AdminItineraryPackageShow = (props) => {
     <>
       <div className={classes.column}>
         <div className={classes.container}>
-          <h1 className={classes.title + " " + "title-fantasy-font"}>
+          <h1 className={classes.title}>
             Itinerary Package: {itinPackage.title}
           </h1>{" "}
           <MyLink
@@ -217,8 +217,8 @@ const AdminItineraryPackageShow = (props) => {
           {itinPackageItems.length ? (
             <div className={classes.cardsContainer}>{renderPackageItems()}</div>
           ) : (
-              <p className={classes.italic}>No Items</p>
-            )}
+            <p className={classes.italic}>No Items</p>
+          )}
         </div>
       </div>
       <div className={classes.column}>

@@ -267,7 +267,7 @@ const Request = (props) => {
         }
       >
         <div className={classes.requestContainer}>
-          <h1 className={classes.requestTitle + " " + "title-fantasy-font"}>
+          <h1 className={classes.requestTitle}>
             What kind of night do you want?
           </h1>
 

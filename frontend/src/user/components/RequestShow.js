@@ -38,7 +38,7 @@ const RequestShow = (props) => {
       if (new Date(request.start_time) > new Date()) {
         return (
           <>
-            <h1 className="title-fantasy-font">Stay tuned...</h1>
+            <h1>Stay tuned...</h1>
             <SideDialog>
               <p>
                 Get excited! Your itinerary is all set. You will be getting text
@@ -53,7 +53,7 @@ const RequestShow = (props) => {
     } else {
       return (
         <>
-          <h1 className="title-fantasy-font">Stay tuned...</h1>
+          <h1>Stay tuned...</h1>
           <SideDialog>
             <p>We are busy working to get your night out all set up!</p>
             <p>

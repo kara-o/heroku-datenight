@@ -19,7 +19,7 @@ const LoginSignUpContainer = ({ title, link = null, children }) => {
   const classes = useStyles();
   return (
     <div className={classes.container}>
-      <h1 className="title-fantasy-font">{title}</h1>
+      <h1>{title}</h1>
       {children}
       {link ? (
         <MyLink styles={classes.link} destination={link.destination}>
