@@ -18,6 +18,9 @@ import { createUseStyles } from "react-jss";
 const useStyles = createUseStyles({
   container: {
     gridColumn: "1/3",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
   },
   filter: {
     margin: "10px",
@@ -97,8 +100,8 @@ const AdminItineraryPackage = (props) => {
 
   return (
     <div className={classes.container}>
+      <h1 className="title-fantasy-font">Create New Itinerary Package</h1>
       <Form>
-        <h1 className="title-fantasy-font">Create New Itinerary Package</h1>
         {errors ? <Errors errors={errors} /> : null}
 
         <MyInput
@@ -125,7 +128,7 @@ const AdminItineraryPackage = (props) => {
 
         <MyInput
           blurb={true}
-          placeholder="Write a blurb about this package..."
+          placeholder="Write a blurb..."
           value={blurb}
           onChange={(e) => setBlurb(e.target.value)}
         />

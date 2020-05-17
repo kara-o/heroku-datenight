@@ -56,9 +56,6 @@ const useStyles = createUseStyles({
     marginTop: "20px",
     marginBottom: "20px",
   },
-  // fieldset: {
-  //   marginBottom: "20px",
-  // },
 });
 
 const DEFAULT_DATE_LENGTH_HOURS = 4;
@@ -330,14 +327,14 @@ const Request = (props) => {
                   />
                 ))}
             </Fieldset>
-            <Fieldset legend="Notes">
-              <MyInput
-                blurb={true}
-                placeholder="Any additional notes for us?"
-                value={formData.notes}
-                onChange={(e) => handleChange(e.target.value, "notes")}
-              />
-            </Fieldset>
+
+            <MyInput
+              blurb={true}
+              placeholder="Any additional notes for us?"
+              value={formData.notes}
+              onChange={(e) => handleChange(e.target.value, "notes")}
+            />
+
           </Form>
           <MyButton onClick={handleSubmit}>Submit Request</MyButton>
           {showModal ? (
