@@ -327,14 +327,12 @@ const Request = (props) => {
                   />
                 ))}
             </Fieldset>
-
             <MyInput
               blurb={true}
               placeholder="Any additional notes for us?"
               value={formData.notes}
               onChange={(e) => handleChange(e.target.value, "notes")}
             />
-
           </Form>
           <MyButton onClick={handleSubmit}>Submit Request</MyButton>
           {showModal ? (
