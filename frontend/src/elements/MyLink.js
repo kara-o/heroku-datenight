@@ -5,6 +5,7 @@ import { createUseStyles } from "react-jss";
 const useStyles = createUseStyles({
   link: {
     textDecoration: "none",
+    textAlign: "center",
     color: "black",
     "&:hover": {
       color: "#533747",
