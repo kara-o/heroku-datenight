@@ -49,7 +49,7 @@ const useStyles = createUseStyles({
     gridColumn: "1/3",
   },
   withHelp: {
-    gridColumn: "1/2",
+    gridColumn: "2/3",
   },
   filter: {
     marginTop: "20px",
@@ -261,6 +261,9 @@ const Request = (props) => {
 
   return (
     <>
+      {showHelp ? (
+        <div className={classes.column}>{renderHelpPage()}</div>
+      ) : null}
       <div
         className={
           (showHelp ? classes.withHelp : classes.noHelp) + " " + classes.column
@@ -385,9 +388,6 @@ const Request = (props) => {
           ) : null}
         </div>
       </div>
-      {showHelp ? (
-        <div className={classes.column}>{renderHelpPage()}</div>
-      ) : null}
     </>
   );
 };
