@@ -118,9 +118,8 @@ const ItineraryItemForm = (props) => {
         value={address}
         onChange={(e) => setAddress(e.target.value)}
       />
-      <textarea
-        className={classes.blurb}
-        rows={3}
+      <MyInput
+        blurb={true}
         placeholder="Blurb"
         value={blurb}
         onChange={(e) => setBlurb(e.target.value)}
@@ -218,8 +217,8 @@ const AdminItineraryPackageShow = (props) => {
           {itinPackageItems.length ? (
             <div className={classes.cardsContainer}>{renderPackageItems()}</div>
           ) : (
-            <p className={classes.italic}>No Items</p>
-          )}
+              <p className={classes.italic}>No Items</p>
+            )}
         </div>
       </div>
       <div className={classes.column}>

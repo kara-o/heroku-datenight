@@ -19,13 +19,6 @@ const useStyles = createUseStyles({
   container: {
     gridColumn: "1/3",
   },
-  blurb: {
-    margin: "10px",
-    padding: "10px",
-    width: "75%",
-    outline: "none",
-    resize: "none",
-  },
   filter: {
     margin: "10px",
   },
@@ -130,9 +123,8 @@ const AdminItineraryPackage = (props) => {
           {renderOptions(priceRanges, "max_amount")}
         </Filter>
 
-        <textarea
-          className={classes.blurb}
-          rows={5}
+        <MyInput
+          blurb={true}
           placeholder="Write a blurb about this package..."
           value={blurb}
           onChange={(e) => setBlurb(e.target.value)}

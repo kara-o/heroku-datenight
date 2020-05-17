@@ -14,13 +14,6 @@ const useStyles = createUseStyles({
     textAlign: "center",
     width: "100%",
   },
-  feedbackTextArea: {
-    resize: "none",
-    width: "100%",
-    outline: "none",
-    margin: "10px",
-    padding: "10px",
-  },
   starsContainer: {
     fontSize: "24px",
   },
@@ -109,10 +102,9 @@ const Review = ({
       ) : null;
     } else {
       return (
-        <textarea
+        <MyInput
+          blurb={true}
           placeholder="Any additional feedback?"
-          className={classes.feedbackTextArea}
-          rows={5}
           value={review.feedback}
           onChange={(e) => handleChangeFeedback(e.target.value)}
         />
@@ -125,77 +117,77 @@ const Review = ({
       {admin && !request.review ? (
         <h1 className="title-fantasy-font">Not yet reviewed.</h1>
       ) : (
-        <>
-          <h1 className="title-fantasy-font">
-            {admin ? "Review" : "Your Review"}
-          </h1>
-          <MyPaper styles={classes.paper}>
-            <div className={classes.starsContainer}>
-              <Stars
-                styles={classes.starsContainer}
-                review={request.review ? request.review : review}
-                onClick={handleClickStar}
-              />
-            </div>
+          <>
+            <h1 className="title-fantasy-font">
+              {admin ? "Review" : "Your Review"}
+            </h1>
+            <MyPaper styles={classes.paper}>
+              <div className={classes.starsContainer}>
+                <Stars
+                  styles={classes.starsContainer}
+                  review={request.review ? request.review : review}
+                  onClick={handleClickStar}
+                />
+              </div>
 
-            {renderFeedback()}
-            {request.review ? (
-              <div className={classes.smallPrintDiv}>
-                <p className={classes.smallPrint}>
-                  - Reviewed on{" "}
-                  {moment(request.review.created_at).format(
-                    "MMMM Do YYYY, [at] h:mm:ss a"
-                  )}
-                </p>
-                {request.review.admin_reviewed ? (
+              {renderFeedback()}
+              {request.review ? (
+                <div className={classes.smallPrintDiv}>
                   <p className={classes.smallPrint}>
-                    - Admin acknowledged on{" "}
-                    {moment(request.review.admin_reviewed).format(
+                    - Reviewed on{" "}
+                    {moment(request.review.created_at).format(
                       "MMMM Do YYYY, [at] h:mm:ss a"
                     )}
                   </p>
-                ) : admin ? (
-                  <label className={classes.smallPrint}>
-                    Acknowledge{" "}
-                    <input
-                      className={classes.smallPrint}
-                      onChange={(e) => {
-                        if (e.target.checked) {
-                          updateAdminReview(
-                            userData,
-                            request.id,
-                            request.review.id,
-                            new Date()
-                          ).then((json) => {
-                            if (!json.errors) {
-                              setRequest({ ...request, review: json });
-                              handleInvalidatedRequest(json.id);
-                            } else {
-                              console.log(
-                                "There was an error updating the review"
-                              );
-                            }
-                          });
-                        }
-                      }}
-                      type="checkbox"
-                    />
-                  </label>
-                ) : (
-                  <p className={classes.smallPrint + " " + classes.italic}>
-                    Admin has not yet seen your review
-                  </p>
-                )}
-              </div>
+                  {request.review.admin_reviewed ? (
+                    <p className={classes.smallPrint}>
+                      - Admin acknowledged on{" "}
+                      {moment(request.review.admin_reviewed).format(
+                        "MMMM Do YYYY, [at] h:mm:ss a"
+                      )}
+                    </p>
+                  ) : admin ? (
+                    <label className={classes.smallPrint}>
+                      Acknowledge{" "}
+                      <input
+                        className={classes.smallPrint}
+                        onChange={(e) => {
+                          if (e.target.checked) {
+                            updateAdminReview(
+                              userData,
+                              request.id,
+                              request.review.id,
+                              new Date()
+                            ).then((json) => {
+                              if (!json.errors) {
+                                setRequest({ ...request, review: json });
+                                handleInvalidatedRequest(json.id);
+                              } else {
+                                console.log(
+                                  "There was an error updating the review"
+                                );
+                              }
+                            });
+                          }
+                        }}
+                        type="checkbox"
+                      />
+                    </label>
+                  ) : (
+                        <p className={classes.smallPrint + " " + classes.italic}>
+                          Admin has not yet seen your review
+                        </p>
+                      )}
+                </div>
+              ) : null}
+            </MyPaper>
+            {!admin && !request.review ? (
+              <MyButton styles={classes.button} onClick={handleSubmit}>
+                Submit Review
+              </MyButton>
             ) : null}
-          </MyPaper>
-          {!admin && !request.review ? (
-            <MyButton styles={classes.button} onClick={handleSubmit}>
-              Submit Review
-            </MyButton>
-          ) : null}
-        </>
-      )}
+          </>
+        )}
     </div>
   );
 };

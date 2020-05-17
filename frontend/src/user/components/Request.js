@@ -21,13 +21,6 @@ import * as moment from "moment";
 import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
-  textArea: {
-    resize: "none",
-    width: "100%",
-    border: "none",
-    outline: "none",
-    fontSize: "16px",
-  },
   requestTitle: {
     marginBottom: "5px",
   },
@@ -338,10 +331,9 @@ const Request = (props) => {
                 ))}
             </Fieldset>
             <Fieldset legend="Notes">
-              <textarea
+              <MyInput
+                blurb={true}
                 placeholder="Any additional notes for us?"
-                className={classes.textArea}
-                rows={5}
                 value={formData.notes}
                 onChange={(e) => handleChange(e.target.value, "notes")}
               />
