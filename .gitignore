@@ -24,6 +24,7 @@
 # env files
 dev.env
 sendgrid.env
+twilio.env
 
 
 ###FRONTEND

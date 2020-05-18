@@ -10,6 +10,7 @@ const useStyles = createUseStyles({
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
+    marginBottom: "20px",
   },
   details: {
     marginTop: "0px",
@@ -22,7 +23,7 @@ const useStyles = createUseStyles({
     textAlign: "center",
   },
   paper: {
-    width: "450px",
+    width: "400px",
   },
 });
 

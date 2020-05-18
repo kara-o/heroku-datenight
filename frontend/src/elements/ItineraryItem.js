@@ -12,7 +12,7 @@ const useStyles = createUseStyles({
     alignItems: "center",
     justifyContent: "center",
     "@media all and (max-width: 599px)": {
-      width: "450px",
+      width: "400px",
       height: "700px",
     },
     "@media all and (min-width: 600px) and (max-width: 1099px)": {

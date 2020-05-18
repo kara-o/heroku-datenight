@@ -13,6 +13,7 @@ const useStyles = createUseStyles({
     alignItems: "center",
     textAlign: "center",
     width: "100%",
+    marginBottom: "20px",
   },
   starsContainer: {
     fontSize: "24px",
@@ -39,7 +40,7 @@ const useStyles = createUseStyles({
     marginTop: "20px",
   },
   paper: {
-    width: "450px",
+    width: "400px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",

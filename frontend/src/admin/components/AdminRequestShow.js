@@ -62,7 +62,7 @@ const useStyles = createUseStyles({
     },
   },
   buttonDiv: {
-    width: "450px",
+    width: "400px",
     display: "flex",
     flexFlow: "row wrap",
     justifyContent: "space-evenly",

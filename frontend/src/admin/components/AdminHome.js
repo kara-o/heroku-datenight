@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { fetchRequests } from "../services/api-admin";
+import React, { useState } from "react";
 import { ListContainer, ListItem, Stars, MyButton } from "../../elements";
 import * as moment from "moment";
 import { createUseStyles } from "react-jss";
-import { createPalette } from "@material-ui/core/styles";
 
 const useStyles = createUseStyles({
   mainContainer: {
