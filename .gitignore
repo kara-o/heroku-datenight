@@ -23,6 +23,7 @@
 
 # env files
 dev.env
+sendgrid.env
 
 
 ###FRONTEND
