@@ -51,3 +51,5 @@ gem 'devise'
 gem 'devise_token_auth'
 
 gem 'twilio-ruby'
+
+gem 'sendgrid-ruby'
