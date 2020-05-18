@@ -1,8 +1,8 @@
-# DateNight - www.datenightapp.herokuapp.com
+# DateNight - https://datenightapp.herokuapp.com/
 
 DateNight is a single-page web-based application designed for couples/partners who need some sponteaneity when it comes to going out to eat. 
 
-This was my final project completed during Module Five at Flatiron School, since refactored and [deployed on Heroku](www.datenightapp.herokuapp.com).  It is a single page web application built with Rails API backend/ReactJS frontend.  The app is designed with separate user and admin interfaces.
+This was my final project completed during Module Five at Flatiron School, since refactored and [deployed on Heroku](https://datenightapp.herokuapp.com/).  It is a single page web application built with Rails API backend/ReactJS frontend.  The app is designed with separate user and admin interfaces.
 
 ### Built With
 
