@@ -22,7 +22,7 @@ const useStyles = createUseStyles({
     textAlign: "center",
   },
   paper: {
-    width: "400px",
+    width: "450px",
   },
 });
 

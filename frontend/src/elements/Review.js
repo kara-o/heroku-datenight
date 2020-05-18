@@ -39,7 +39,7 @@ const useStyles = createUseStyles({
     marginTop: "20px",
   },
   paper: {
-    width: "400px",
+    width: "450px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",

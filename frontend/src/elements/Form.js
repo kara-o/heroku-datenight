@@ -12,7 +12,7 @@ const useStyles = createUseStyles({
   },
   formContainer: {
     "@media all and (max-width: 599px)": {
-      width: "400px",
+      width: "450px",
     },
     "@media all and (min-width: 600px)": {
       width: "500px",
