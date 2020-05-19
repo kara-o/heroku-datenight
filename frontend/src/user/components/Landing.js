@@ -10,7 +10,10 @@ const useStyles = createUseStyles({
   container: {
     gridColumn: "1/3",
     textAlign: "center",
-    marginTop: "25vh",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
   },
   options: {
     display: "flex",
