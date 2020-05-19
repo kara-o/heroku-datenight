@@ -119,23 +119,21 @@ const ItineraryItemForm = (props) => {
         value={address}
         onChange={(e) => setAddress(e.target.value)}
       />
+      <MyInput
+        placeholder="Make reservation link"
+        value={makeResLink}
+        onChange={(e) => setMakeResLink(e.target.value)}
+      />
+      <MyInput
+        placeholder="Map URL"
+        value={mapUrl}
+        onChange={(e) => setMapUrl(e.target.value)}
+      />
       <Blurb
         placeholder="Blurb"
         value={blurb}
         onChange={(e) => setBlurb(e.target.value)}
       />
-      <div className={classes.links}>
-        <MyInput
-          placeholder="Make reservation link"
-          value={makeResLink}
-          onChange={(e) => setMakeResLink(e.target.value)}
-        />
-        <MyInput
-          placeholder="Map URL"
-          value={mapUrl}
-          onChange={(e) => setMapUrl(e.target.value)}
-        />
-      </div>
       <div className={classes.buttons}>
         <MyButton onClick={handleCreateMap}>Generate Map</MyButton>
         {iFrame ? <Map width="75%" height="300px" url={iFrame} /> : null}
@@ -160,7 +158,7 @@ const AdminItineraryPackageShow = (props) => {
         setItinPackageItems(itinPackage.itinerary_package_items);
       });
     }
-  }, [userData]);
+  }, [itinPackageId, userData]);
 
   const displayItinPackage = () => {
     if (itinPackage) {

@@ -25,6 +25,7 @@ import Stars from "./Stars";
 import MyPaper from "./MyPaper";
 import Blurb from "./Blurb";
 import Loading from "./Loading";
+import Info from "./Info";
 
 export {
   MyButton,
@@ -54,4 +55,5 @@ export {
   MyPaper,
   Blurb,
   Loading,
+  Info,
 };

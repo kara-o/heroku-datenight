@@ -48,11 +48,16 @@ const Footer = () => {
         <h1 className={classes.title}>DateNight</h1>
       </Link>
       <div>
-        <MyLink styles={classes.link}>About</MyLink> •{" "}
-        <MyLink styles={classes.link}>Contact</MyLink>
+        <MyLink destination="/info/about" styles={classes.link}>
+          About
+        </MyLink>{" "}
+        •{" "}
+        <MyLink destination="/info/contact" styles={classes.link}>
+          Contact
+        </MyLink>
       </div>
 
-      <p className={classes.copyright}>Established ♥ 2020</p>
+      <p className={classes.copyright}>Established ♥ 2019</p>
     </footer>
   );
 };

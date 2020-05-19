@@ -127,7 +127,7 @@ const AdminRequestShow = (props) => {
         setNeighborhoods(list);
       });
     }
-  }, [userData]);
+  }, [userData, requestId]);
 
   const handleComplete = () => {
     toggleRequestFulfilled(userData, requestId, !request.fulfilled).then(

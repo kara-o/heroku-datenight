@@ -16,7 +16,7 @@ import {
   AdminLogin,
   AdminRequestShow,
 } from "./admin/components";
-import { Navbar, Footer } from "./elements";
+import { Navbar, Footer, Info } from "./elements";
 import { logoutUser } from "./user/services/api";
 import {
   logoutAdmin,
@@ -149,6 +149,7 @@ const App = () => {
       ) : null}
       <div className={classes.mainContainer}>
         <Switch>
+          <Route path="/info/:type" render={(props) => <Info {...props} />} />
           <Route
             path="/login"
             render={(props) =>
