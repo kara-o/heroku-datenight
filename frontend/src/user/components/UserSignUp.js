@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { createUser } from "../services/api";
 import {
   MyButton,
-  MyLink,
   Form,
   LoginSignUpContainer,
   MyInput,
@@ -39,10 +38,7 @@ const UserSignUp = (props) => {
   };
 
   return (
-    <LoginSignUpContainer
-      title="Welcome"
-      link={{ text: "Back", destination: "/login" }}
-    >
+    <LoginSignUpContainer title="Welcome.">
       <Form>
         {errors ? <Errors errors={errors} /> : null}
         <MyInput
