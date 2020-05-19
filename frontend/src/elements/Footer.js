@@ -1,5 +1,6 @@
 import React from "react";
 import { ExtendedBackground, MyLink } from ".";
+import { Link } from "react-router-dom";
 import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
@@ -31,6 +32,10 @@ const useStyles = createUseStyles({
       color: "black",
     },
   },
+  landingLink: {
+    textDecoration: "none",
+    color: "black",
+  },
 });
 
 const Footer = () => {
@@ -39,8 +44,9 @@ const Footer = () => {
   return (
     <footer className={classes.container}>
       <ExtendedBackground />
-
-      <h1 className={classes.title}>DateNight</h1>
+      <Link className={classes.landingLink} to="/">
+        <h1 className={classes.title}>DateNight</h1>
+      </Link>
       <div>
         <MyLink styles={classes.link}>About</MyLink> •{" "}
         <MyLink styles={classes.link}>Contact</MyLink>

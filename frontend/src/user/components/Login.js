@@ -8,6 +8,7 @@ import {
   MyInput,
   Errors,
 } from "../../elements";
+import Landing from "./Landing";
 
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);
@@ -62,13 +63,7 @@ const Login = (props) => {
   };
 
   return (
-    <LoginSignUpContainer
-      title="DateNight"
-      link={{
-        text: "New user? Sign up for an account",
-        destination: "/signup",
-      }}
-    >
+    <LoginSignUpContainer title="DateNight">
       <>
         {isAccountConfirmationPending ? (
           <h3>Confirmation email sent - check your inbox!</h3>

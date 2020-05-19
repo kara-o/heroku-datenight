@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 import {
+  Landing,
   Login,
   UserSignUp,
   Request,
@@ -33,6 +34,7 @@ const useStyles = createUseStyles({
     body: {
       margin: "0px",
       overflowX: "hidden",
+      backgroundColor: "#f2f2f2",
     },
     "#root": {
       maxWidth: "1500px",
@@ -130,7 +132,7 @@ const App = () => {
     return () => {
       cancelled = true;
     };
-  }, [invalidatedRequest]);
+  }, [allRequests, invalidatedRequest, userData]);
 
   const handleInvalidatedRequest = (id) => {
     setInvalidatedRequest(id);
@@ -251,7 +253,7 @@ const App = () => {
               loggedIn && !userData.admin ? (
                 <UserHome {...props} userData={userData} />
               ) : (
-                <Redirect to="/login" />
+                <Landing {...props} />
               )
             }
           />

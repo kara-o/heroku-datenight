@@ -1,5 +1,5 @@
 import React from "react";
-import { MyLink, ExtendedBackground } from ".";
+import { MyLink } from ".";
 import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
@@ -21,7 +21,6 @@ const Navbar = ({ logoutUser, logoutAdmin, userData }) => {
 
   return (
     <nav className={classes.navbar}>
-      {/* <ExtendedBackground /> */}
       {userData && !userData.admin ? (
         <>
           <MyLink destination={`/`}>Home</MyLink>
